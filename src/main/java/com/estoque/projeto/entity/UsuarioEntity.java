@@ -42,4 +42,7 @@ public class UsuarioEntity {
     @Column(name= "senha", nullable= false)
     private String userSenha;
     
+    @Column(name = "ativo", nullable = false)
+    private boolean ativo = true;
+    
 }

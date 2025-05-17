@@ -1,7 +1,7 @@
-
 package com.estoque.projeto.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,14 +23,27 @@ public class UsuarioService {
     }
 
     public UsuarioEntity editar(int id, UsuarioEntity usuario) {
+        if (!usuarioRepository.existsById(id)) {
+            return null;
+        }
         return usuarioRepository.save(usuario);
     }
 
     public List<UsuarioEntity> listarTodos() {
         return usuarioRepository.findAll();
     }
-    public void excluir(Long id) {
-        usuarioRepository.deleteById(id);
+    
+    public Optional<UsuarioEntity> buscarPorId(Integer id) {
+        return usuarioRepository.findById(id);
+    }
+    
+    public void excluir(Integer id) {
+        Optional<UsuarioEntity> usuario = buscarPorId(id);
+        if (usuario.isPresent()) {
+            UsuarioEntity user = usuario.get();
+            user.setAtivo(false);
+            usuarioRepository.save(user);
+        }
     }
 }
 

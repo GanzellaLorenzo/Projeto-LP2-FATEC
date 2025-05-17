@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.estoque.projeto.entity.EstoqueEntity;
 
 @Repository
-public interface EstoqueRepository extends JpaRepository<EstoqueEntity,Long>{
+public interface EstoqueRepository extends JpaRepository<EstoqueEntity,Integer>{
 
 }

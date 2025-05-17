@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.estoque.projeto.entity.MovimentacaoEntity;
 
 @Repository
-public interface MovimentacaoRepository extends JpaRepository<MovimentacaoEntity,Long > {
+public interface MovimentacaoRepository extends JpaRepository<MovimentacaoEntity,Integer > {
 
 }
