@@ -1,13 +1,9 @@
 package com.estoque.projeto.entity;
 
-import com.estoque.projeto.enums.StatusProdutoEnum;
-
 import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -46,8 +42,7 @@ public class ProdutoEntity {
     @Column(name= "quantidade", nullable= false)
     private int quantidade;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name= "status", nullable= false)
-    private StatusProdutoEnum status;
+    @Column(name= "ativo", nullable= false)
+    private boolean ativo = true;
 
 }
