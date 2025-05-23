@@ -2,7 +2,7 @@ package com.estoque.projeto.entity;
 
 import java.time.LocalDateTime;
 
-import com.estoque.projeto.enums.AcaoMovimentacaoEnum;
+import com.estoque.projeto.entity.enums.AcaoMovimentacaoEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,7 +48,7 @@ public class MovimentacaoEntity {
     @Column(nullable = false)
     private AcaoMovimentacaoEnum acao;
 
-    @Column(nullable = false)
+    @Column(name="quantidade", nullable = false)
     private Integer quantidade;
 
     @Column(name = "data_hora", nullable = false)

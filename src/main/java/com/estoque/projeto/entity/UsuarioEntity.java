@@ -1,6 +1,6 @@
 package com.estoque.projeto.entity;
 
-import com.estoque.projeto.enums.TipoUsuarioEnum;
+import com.estoque.projeto.entity.enums.TipoUsuarioEnum;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

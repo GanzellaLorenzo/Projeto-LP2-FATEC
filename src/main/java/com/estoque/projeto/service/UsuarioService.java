@@ -3,7 +3,6 @@ package com.estoque.projeto.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.estoque.projeto.entity.UsuarioEntity;
@@ -15,7 +14,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UsuarioService {
 
-    @Autowired
     private final UsuarioRepository usuarioRepository;
 
     public UsuarioEntity incluir(UsuarioEntity usuario) {
