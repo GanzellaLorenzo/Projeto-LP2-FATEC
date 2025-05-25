@@ -1,6 +1,6 @@
 package com.estoque.projeto.entity.enums;
 
-public enum AcaoMovimentacaoEnum {
+public enum TipoAcao {
     ENTRADA,
     SAIDA
 }

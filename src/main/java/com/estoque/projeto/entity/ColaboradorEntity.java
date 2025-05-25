@@ -1,14 +1,12 @@
 package com.estoque.projeto.entity;
 
-import com.estoque.projeto.entity.enums.TipoUsuarioEnum;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,33 +14,30 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name= "usuario")
+@Table(name= "colaborador")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class UsuarioEntity {
-
+public class ColaboradorEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name= "idUsuario")
+    @Column(name= "idColaborador")
     private int userId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name= "tipo", nullable= false)
-    private TipoUsuarioEnum tipo;
-
     @Column(name= "nome", nullable= false)
-    private String userName;
+    private String nomeColaborador;
 
     @Column(name= "email", nullable= false)
-    private String userLoginEmail;
+    private String emailColaborador;
 
     @Column(name= "senha", nullable= false)
-    private String userSenha;
+    private String senhaColaborador;
     
     @Column(name = "ativo", nullable = false)
     private boolean ativo = true;
     
+    @ManyToOne
+    @JoinColumn(name = "gestor_id", nullable = false)
+    private GestorEntity gestor;
 }

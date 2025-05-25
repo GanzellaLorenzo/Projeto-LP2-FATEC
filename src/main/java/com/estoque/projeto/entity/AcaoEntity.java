@@ -1,8 +1,6 @@
 package com.estoque.projeto.entity;
 
-import java.time.LocalDateTime;
-
-import com.estoque.projeto.entity.enums.AcaoMovimentacaoEnum;
+import com.estoque.projeto.entity.enums.TipoAcao;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,33 +23,21 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class MovimentacaoEntity {
+public class AcaoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoAcao acao;
+
     @ManyToOne
     @JoinColumn(name = "produto_id", nullable = false)
     private ProdutoEntity produto;
 
-    @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
-    private UsuarioEntity usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "estoque_id", nullable = false)
-    private EstoqueEntity estoque;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private AcaoMovimentacaoEnum acao;
-
     @Column(name="quantidade", nullable = false)
     private Integer quantidade;
-
-    @Column(name = "data_hora", nullable = false)
-    private LocalDateTime dataHora;
 
 }
