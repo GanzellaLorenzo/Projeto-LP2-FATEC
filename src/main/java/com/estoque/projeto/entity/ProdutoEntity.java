@@ -1,7 +1,5 @@
 package com.estoque.projeto.entity;
 
-import java.math.BigDecimal;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,30 +17,28 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
 public class ProdutoEntity {
-
+    
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name= "idprod")
-    private int prodId;
-
-    @Column(name= "nome", length= 200, nullable= false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idprod")
+    private Integer prodId;
+    
+    @Column(name = "nome", nullable = false)
     private String prodNome;
-
-    @Column(name= "descricao", nullable= true)
+    
+    @Column(name = "descricao")
     private String prodDescricao;
-
-    @Column(name= "precoCompra", nullable= true)
-    private BigDecimal prodPrecoCompra;
-
-    @Column(name= "precoVenda", nullable= false)
-    private BigDecimal prodPrecoVenda;
-
-    @Column(name= "quantidade", nullable= false)
-    private int quantidade;
-
-    @Column(name= "ativo", nullable= false)
+    
+    @Column(name = "precocompra")
+    private Double prodPrecoCompra;
+    
+    @Column(name = "precovenda", nullable = false)
+    private Double prodPrecoVenda;
+    
+    @Column(name = "quantidade", nullable = false)
+    private Integer quantidade;
+    
+    @Column(name = "ativo", nullable = false)
     private boolean ativo = true;
-
 }
