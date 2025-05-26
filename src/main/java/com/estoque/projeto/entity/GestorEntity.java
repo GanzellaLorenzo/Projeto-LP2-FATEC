@@ -21,7 +21,7 @@ public class GestorEntity {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name= "idGestor")
+    @Column(name= "idgestor")
     private int userId;
 
     @Column(name= "empresa", nullable= false)
