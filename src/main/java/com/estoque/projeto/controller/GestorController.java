@@ -17,6 +17,7 @@ import com.estoque.projeto.entity.GestorEntity;
 import com.estoque.projeto.service.GestorService;
 import com.estoque.projeto.service.LogAuditoriaService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -73,9 +74,11 @@ public class GestorController {
     }
     
     @PostMapping("/login")
-    public ResponseEntity<GestorEntity> login(@RequestBody LoginRequest request) {
+    public ResponseEntity<GestorEntity> login(@RequestBody LoginRequest request, HttpSession session) {
         return gestorService.login(request.getEmail(), request.getSenha())
                 .map(gestor -> {
+                    session.setAttribute("USUARIO_LOGADO", gestor);
+                    
                     logAuditoriaService.registrarLog(
                             "LOGIN_GESTOR",
                             "Login do gestor: " + gestor.getNomeGestor(),
